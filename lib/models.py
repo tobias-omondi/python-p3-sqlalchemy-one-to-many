@@ -1,6 +1,6 @@
 from sqlalchemy import ForeignKey, Column, Integer, String, MetaData
 from sqlalchemy.orm import relationship, backref
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm  import declarative_base
 
 convention = {
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
@@ -11,10 +11,10 @@ Base = declarative_base(metadata=metadata)
 
 class Game(Base):
     __tablename__ = 'games'
-    id = Column(Integer(), primary_key=True)
-    title = Column(String())
-    genre = Column(String())
-    platform = Column(String())  # Fixed typo here
+    id = Column (Integer(), primary_key=True)
+    title = Column (String())
+    genre = Column (String())
+    platform = Column(String())
     price = Column(Integer())
 
     reviews = relationship('Review', backref=backref('game'))
